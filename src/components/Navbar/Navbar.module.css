@@ -1,0 +1,247 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.35s ease;
+  background: linear-gradient(180deg, rgba(4, 9, 18, 0.8) 0%, rgba(4, 9, 18, 0.2) 75%, transparent 100%);
+}
+
+.scrolled {
+  padding: 13px 0;
+  background: rgba(6, 12, 22, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+.navContainer {
+  max-width: 1440px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.5vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 1.8vw, 24px);
+}
+
+/* Desktop Navigation - Proportional and Flexible */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.1vw, 14px);
+  flex: 0 1 auto;
+  justify-content: center;
+  min-width: 0;
+}
+
+.navSeparator {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.78rem;
+  font-weight: 300;
+  user-select: none;
+}
+
+.navLink {
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: clamp(0.72rem, 0.8vw, 0.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  padding: 6px 2px;
+  white-space: nowrap;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.navLink:hover {
+  color: var(--gb-amber-400);
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+}
+
+/* Nav Actions - Guaranteed No-Clip with flex-shrink: 0 */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.2vw, 16px);
+  flex-shrink: 0;
+}
+
+.searchBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.searchBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ANGEBOT ANFORDERN Pill Button */
+.quoteBtn {
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: clamp(0.7rem, 0.78vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  padding: 8px clamp(14px, 1.2vw, 20px);
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.quoteBtn:hover {
+  background: #ffffff;
+  color: var(--gb-navy-950);
+  border-color: #ffffff;
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.mobileToggleBtn {
+  display: none;
+  color: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* Mobile Drawer */
+.mobileDrawer {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+}
+
+.mobileDrawerOpen {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.drawerBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.8);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobileDrawerOpen .drawerBackdrop {
+  opacity: 1;
+}
+
+.drawerContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 320px;
+  background: rgba(8, 14, 26, 0.98);
+  border-left: 1px solid var(--gb-border-glass);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobileDrawerOpen .drawerContent {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawerCloseBtn {
+  color: var(--gb-steel-400);
+  padding: 6px;
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 30px 0;
+  flex: 1;
+}
+
+.mobileNavLink {
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.drawerFooter {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawerQuoteBtn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, var(--gb-orange-500), var(--gb-orange-600));
+  color: #ffffff;
+  border-radius: 9999px;
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* Responsive - Clean collapse at 1220px to prevent overflow */
+@media (max-width: 1220px) {
+  .desktopNav {
+    display: none;
+  }
+  .mobileToggleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .navContainer {
+    padding: 0 16px;
+  }
+  .quoteBtn {
+    display: none;
+  }
+}
