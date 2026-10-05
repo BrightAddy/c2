@@ -12,19 +12,6 @@
   gap: 10px;
 }
 
-.monogram {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.svgEmblem {
-  width: 100%;
-  height: 100%;
-}
 
 .textContainer {
   display: flex;
@@ -53,10 +40,6 @@
 }
 
 @media (max-width: 640px) {
-  .monogram {
-    width: 34px;
-    height: 34px;
-  }
   .brandTitle {
     font-size: 1.15rem;
   }
