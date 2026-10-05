@@ -1,0 +1,305 @@
+.scrollContainer {
+  position: relative;
+  height: 400vh;
+  width: 100%;
+  background-color: #060c16;
+}
+
+.stickyViewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
+
+/* Gradient Overlays for Cinematic Feel */
+.vignetteOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(6, 12, 22, 0.15) 0%, rgba(6, 12, 22, 0.65) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ambientTopFade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(180deg, rgba(6, 12, 22, 0.85) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.ambientBottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: linear-gradient(0deg, rgba(6, 12, 22, 0.95) 0%, rgba(6, 12, 22, 0.4) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Text Storytelling Layer */
+.textLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 32px 100px;
+  max-width: 1440px;
+  margin: 0 auto;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.textInnerContainer {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.phaseBlock {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  will-change: opacity, transform;
+}
+
+/* Badge */
+.badgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: rgba(249, 115, 22, 0.2);
+  border: 1px solid rgba(249, 115, 22, 0.45);
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #fbbf24;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.25);
+}
+
+.badgeIcon {
+  color: #fbbf24;
+}
+
+/* Headline */
+.headline {
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+  margin: 0;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+.subtitle {
+  font-family: var(--font-sans, "Inter", sans-serif);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 660px;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* CTA Row */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff;
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 13px 26px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+  transition: all 0.25s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(249, 115, 22, 0.6);
+}
+
+.outlineBtn {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 13px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.outlineBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* HUD Progress & Scrubber Bar */
+.hudBar {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hudLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.telemetryText {
+  font-family: var(--font-heading, "Montserrat", monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.scrubberTrack {
+  width: 180px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.scrubberProgress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #f97316 0%, #fbbf24 100%);
+  border-radius: 9999px;
+  transition: width 0.05s linear;
+}
+
+.scrollCue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  transition: opacity 0.2s ease;
+}
+
+.cueArrow {
+  animation: bounceDown 1.8s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 1024px) {
+  .headline {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .scrubberTrack {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .textLayer {
+    padding: 0 20px 80px;
+  }
+  .headline {
+    font-size: 1.85rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+  .badgePill {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+  .hudBar {
+    padding: 0 20px;
+    bottom: 16px;
+  }
+  .scrubberTrack {
+    width: 90px;
+  }
+}
