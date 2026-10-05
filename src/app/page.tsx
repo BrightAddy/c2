@@ -6,7 +6,6 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar/Navbar";
 import CanvasScrollHero from "@/components/Hero/CanvasScrollHero";
 import QuoteModal from "@/components/Modals/QuoteModal";
-import BrandLogo from "@/components/Navbar/BrandLogo";
 import {
   Building2,
   HardHat,
@@ -247,7 +246,6 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.footerGrid}>
             <div className={styles.footerCol}>
-              <BrandLogo showTagline />
               <p className={styles.footerDesc}>
                 Global Bau &amp; Generalunternehmung ist ein führendes Konsortium für anspruchsvollen Hoch- und Ingenieurbau. Wir gestalten die Skyline von morgen durch statische Meisterschaft, digitale Zwillinge und zertifizierte Arbeitssicherheit.
               </p>

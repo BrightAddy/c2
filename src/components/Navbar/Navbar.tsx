@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Search, Menu, X } from "lucide-react";
-import BrandLogo from "./BrandLogo";
 import SearchModal from "../Modals/SearchModal";
 import QuoteModal from "../Modals/QuoteModal";
 import { siteHeaderConfig } from "@/data/navigationData";
@@ -31,8 +30,6 @@ export default function Navbar({ onOpenQuoteModal, isSolid = false }: NavbarProp
     <>
       <header className={`${styles.header} ${isSolid ? styles.scrolled : ""}`}>
         <div className={styles.navContainer}>
-          {/* Logo */}
-          <BrandLogo />
 
           {/* Desktop Navigation */}
           <nav className={styles.desktopNav} aria-label="Hauptnavigation">
@@ -85,7 +82,6 @@ export default function Navbar({ onOpenQuoteModal, isSolid = false }: NavbarProp
         <div className={styles.drawerBackdrop} onClick={() => setMobileMenuOpen(false)} />
         <div className={styles.drawerContent}>
           <div className={styles.drawerHeader}>
-            <BrandLogo />
             <button
               type="button"
               className={styles.drawerCloseBtn}
